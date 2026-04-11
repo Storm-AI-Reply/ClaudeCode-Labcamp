@@ -1,6 +1,6 @@
 # Setup
 
-Complete these steps **before the workshop starts**.
+Complete these steps **before the workshop starts**. For the full formatted guide (tabs for macOS/Linux/Windows), use the **[workshop documentation site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/setup/)** ([repository](https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp)).
 
 ## 1. Install Python 3.11+
 
@@ -29,7 +29,7 @@ irm https://claude.ai/install.ps1 | iex
 ## 3. Clone and set up
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
 cd ClaudeCode-Labcamp
 python3 -m venv .venv
 source .venv/bin/activate      # Windows: .venv\Scripts\activate

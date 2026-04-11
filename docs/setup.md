@@ -90,7 +90,7 @@ If that prints a version, skip to [Claude Code](#3-install-claude-code).
 === "macOS / Linux"
 
     ```bash
-    git clone <repo-url>
+    git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
     cd ClaudeCode-Labcamp
     python3 -m venv .venv
     source .venv/bin/activate
@@ -100,7 +100,7 @@ If that prints a version, skip to [Claude Code](#3-install-claude-code).
 === "Windows"
 
     ```powershell
-    git clone <repo-url>
+    git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
     cd ClaudeCode-Labcamp
     py -3 -m venv .venv
     .venv\Scripts\Activate.ps1

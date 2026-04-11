@@ -2,7 +2,7 @@
 
 A hands-on workshop where you build a **live trivia quiz app** using Claude Code, then the whole room plays it.
 
-> **[Open the workshop site](https://YOUR_GITHUB_PAGES_URL/)** for the best reading experience, or follow the markdown guides below.
+> **[Open the workshop site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/)** for the best reading experience, or follow the markdown guides below.
 
 ---
 
@@ -12,7 +12,7 @@ Documentation under `docs/` is built with [MkDocs Material](https://squidfunk.gi
 
 **One-time (on GitHub):** **Settings → Pages → Build and deployment** → set **Source** to **GitHub Actions**.
 
-**Deploy:** push to **`main`** or **`master`**, or run the workflow manually (**Actions → Deploy documentation → Run workflow**). The workflow [`.github/workflows/deploy-docs.yml`](.github/workflows/deploy-docs.yml) installs `requirements-docs.txt`, runs `mkdocs build` with `SITE_URL` / `REPO_URL` set for your repo, and publishes the `site/` output. The live URL is shown on the workflow run and under **Settings → Pages** (`https://<owner>.github.io/<repo>/`).
+**Deploy:** push to **`main`** or **`master`**, or run the workflow manually (**Actions → Deploy documentation → Run workflow**). The workflow [`.github/workflows/deploy-docs.yml`](.github/workflows/deploy-docs.yml) installs `requirements-docs.txt`, runs `mkdocs build` with `SITE_URL` / `REPO_URL` set for your repo, and publishes the `site/` output. **Live site:** [storm-ai-reply.github.io/ClaudeCode-Labcamp](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/) (also under **Settings → Pages**).
 
 ### Local preview (use `.venv-docs`, not `.venv`)
 
@@ -36,7 +36,7 @@ pip install -r requirements-docs.txt
 mkdocs serve
 ```
 
-Open **http://127.0.0.1:8000**. Optional: `export REPO_URL=https://github.com/<you>/<repo>` (Unix) or `set REPO_URL=...` (Windows) before `mkdocs serve` so the theme can show **view/edit on GitHub** links.
+Open **http://127.0.0.1:8000**. Optional: `export REPO_URL=https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp` (Unix) or `set REPO_URL=https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp` (Windows) before `mkdocs serve` so the theme can show **view/edit on GitHub** links.
 
 **Optional:** `mkdocs gh-deploy` (pushes to a `gh-pages` branch) if you prefer that over Actions; the workflow above matches current Material recommendations.
 
@@ -45,14 +45,14 @@ Open **http://127.0.0.1:8000**. Optional: `export REPO_URL=https://github.com/<y
 ## Quick start
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
 cd ClaudeCode-Labcamp
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Full instructions in [SETUP.md](SETUP.md).
+Full instructions in [SETUP.md](SETUP.md). Prefer the web version: **[setup on the workshop site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/setup/)**.
 
 ## Labs
 

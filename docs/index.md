@@ -2,6 +2,8 @@
 
 Welcome. Budget **about two and a half hours** for the core labs and final project (plus [setup](setup.md) and breaks). You will build a **live trivia quiz app** using Claude Code, then the whole room plays it.
 
+**Documentation:** [storm-ai-reply.github.io/ClaudeCode-Labcamp](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/) · **Repository:** [github.com/Storm-AI-Reply/ClaudeCode-Labcamp](https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp) · `git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git`
+
 ---
 
 ## How it works
