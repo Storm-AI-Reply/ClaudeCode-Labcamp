@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "defaultMode": "default"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/hooks/guard_live.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/hooks/lint_python.py"
+          }
+        ]
+      }
+    ]
+  },
+  "mcpServers": {
+    "quiz-content": {
+      "command": "python",
+      "args": ["mcp_server/server.py"]
+    }
+  }
+}

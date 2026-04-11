@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ quiz.title }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>{{ quiz.title }}</h1>
+  <p>Topic: {{ quiz.topic }}</p>
+  <p>Status: {{ quiz.status }}</p>
+
+  <div id="player-form">
+    <label>Your name: <input type="text" id="player-name"></label>
+    <button onclick="startPlaying()">Start</button>
+  </div>
+
+  <div id="game-area" style="display:none">
+    <div id="question-container">
+      <h2 id="question-text"></h2>
+      <div id="options"></div>
+      <p id="feedback"></p>
+    </div>
+
+    <div id="scoreboard">
+      <h3>Leaderboard</h3>
+      <ol id="scores-list"></ol>
+    </div>
+  </div>
+
+  <script>
+    const quizId = {{ quiz.id }};
+    const questions = {{ quiz.questions | tojson }};
+    let currentQ = 0;
+    let playerName = '';
+
+    function startPlaying() {
+      playerName = document.getElementById('player-name').value.trim();
+      if (!playerName) { alert('Enter your name'); return; }
+      document.getElementById('player-form').style.display = 'none';
+      document.getElementById('game-area').style.display = 'block';
+      showQuestion();
+      refreshScores();
+    }
+
+    function showQuestion() {
+      if (currentQ >= questions.length) {
+        document.getElementById('question-text').textContent = 'Quiz complete!';
+        document.getElementById('options').innerHTML = '';
+        document.getElementById('feedback').textContent = '';
+        return;
+      }
+      const q = questions[currentQ];
+      const qc = document.getElementById('question-container');
+      if (q.image_url) {
+        qc.style.backgroundImage = 'url("' + String(q.image_url).replace(/"/g, '') + '")';
+        qc.style.backgroundSize = 'cover';
+        qc.style.backgroundPosition = 'center';
+        qc.style.padding = '1rem';
+        qc.style.borderRadius = '8px';
+      } else {
+        qc.style.backgroundImage = '';
+        qc.style.backgroundSize = '';
+        qc.style.backgroundPosition = '';
+        qc.style.padding = '';
+        qc.style.borderRadius = '';
+      }
+      document.getElementById('question-text').textContent =
+        (currentQ + 1) + '/' + questions.length + ': ' + q.text;
+      document.getElementById('feedback').textContent = '';
+      const opts = document.getElementById('options');
+      opts.innerHTML = '';
+      q.options.forEach(function(opt, i) {
+        const btn = document.createElement('button');
+        btn.textContent = opt;
+        btn.onclick = function() { submitAnswer(q.id, i); };
+        opts.appendChild(btn);
+      });
+    }
+
+    function submitAnswer(questionId, selectedIndex) {
+      fetch('/quizzes/' + quizId + '/answer?question_id=' + questionId, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          player_name: playerName,
+          selected_index: selectedIndex
+        })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        document.getElementById('feedback').textContent =
+          data.correct ? 'Correct! Score: ' + data.score : 'Wrong! Score: ' + data.score;
+        currentQ++;
+        setTimeout(showQuestion, 1200);
+        refreshScores();
+      });
+    }
+
+    function refreshScores() {
+      fetch('/quizzes/' + quizId + '/scores')
+        .then(function(r) { return r.json(); })
+        .then(function(scores) {
+          const list = document.getElementById('scores-list');
+          list.innerHTML = '';
+          scores.forEach(function(s) {
+            const li = document.createElement('li');
+            li.textContent = s.player_name + ': ' + s.score;
+            list.appendChild(li);
+          });
+        });
+    }
+  </script>
+</body>
+</html>

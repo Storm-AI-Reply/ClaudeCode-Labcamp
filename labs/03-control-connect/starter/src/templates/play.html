@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ quiz.title }}</title>
+</head>
+<body>
+  <h1>{{ quiz.title }}</h1>
+  <p>Topic: {{ quiz.topic }}</p>
+  <p>Status: {{ quiz.status }}</p>
+
+  {% if quiz.questions %}
+  <ol>
+    {% for q in quiz.questions %}
+    <li>
+      <p>{{ q.text }}</p>
+      <ul>
+        {% for opt in q.options %}
+        <li>
+          <button onclick="alert('clicked')">{{ opt }}</button>
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ol>
+  {% else %}
+  <p>No questions yet.</p>
+  {% endif %}
+</body>
+</html>

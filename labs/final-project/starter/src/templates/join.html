@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join {{ quiz.title }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Join {{ quiz.title }}</h1>
+  <p>Scan the QR code or open this link on your phone:</p>
+
+  {% if qr_data_uri %}
+  <img src="{{ qr_data_uri }}" alt="QR code to join the quiz" width="300" height="300">
+  {% endif %}
+
+  <p><a href="/quizzes/{{ quiz.id }}/play">Go to quiz &rarr;</a></p>
+</body>
+</html>

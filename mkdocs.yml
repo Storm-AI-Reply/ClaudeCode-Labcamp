@@ -1,0 +1,101 @@
+# MkDocs Material — navigation-oriented layout for the workshop site.
+# See: https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+
+site_name: Claude Code Labcamp
+site_description: "Hands-on workshop: build a live trivia quiz with Claude Code"
+site_author: Claude Code Labcamp
+docs_dir: docs
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/external-links.js
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  font:
+    text: DM Sans
+    code: JetBrains Mono
+  features:
+    # Navigation (see Material docs: Navigation)
+    - navigation.instant      # Faster page loads; feels like an app
+    - navigation.tracking     # URL reflects in-page anchors while scrolling
+    - navigation.tabs         # Top-level sections as horizontal tabs
+    - navigation.tabs.sticky  # Tabs stay visible when scrolling
+    - navigation.sections     # Nested sections with labels in the sidebar
+    - navigation.expand       # Expand nested sections so the full lab path is visible
+    - navigation.path         # Breadcrumbs under the header (you are here)
+    - navigation.top          # Back-to-top button
+    - navigation.footer       # Prev/next at bottom of page
+    - navigation.indexes      # Section pages link to first doc
+    # Content
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow              # Sidebar TOC highlights the current section
+    - toc.integrate           # Page TOC merged into the left sidebar (single scroll context)
+  icon:
+    logo: material/school-outline
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-]+'
+
+# Nav: short labels in the sidebar (Material truncates long titles on small screens).
+# Pattern per lab: Overview → Exercise 1 → Exercise 2 → Wrap-up.
+nav:
+  - Home: index.md
+  - Setup: setup.md
+  - Labs:
+    - "All labs (map)": labs/index.md
+    - "Lab 01 · Execution model":
+      - Overview: labs/lab-01/index.md
+      - "Exercise 1 · Loop & Plan Mode": labs/lab-01/exercise-1.md
+      - "Exercise 2 · Context": labs/lab-01/exercise-2.md
+      - Wrap-up: labs/lab-01/wrap-up.md
+    - "Lab 02 · Project configuration":
+      - Overview: labs/lab-02/index.md
+      - "Exercise 1 · CLAUDE.md": labs/lab-02/exercise-1.md
+      - "Exercise 2 · Commands": labs/lab-02/exercise-2.md
+      - Wrap-up: labs/lab-02/wrap-up.md
+    - "Lab 03 · Control & connect":
+      - Overview: labs/lab-03/index.md
+      - "Exercise 1 · Hooks": labs/lab-03/exercise-1.md
+      - "Exercise 2 · MCP": labs/lab-03/exercise-2.md
+      - Wrap-up: labs/lab-03/wrap-up.md
+    - "Lab 04 · Scale & reuse":
+      - Overview: labs/lab-04/index.md
+      - "Exercise 1 · Subagents": labs/lab-04/exercise-1.md
+      - "Exercise 2 · Skills": labs/lab-04/exercise-2.md
+      - Wrap-up: labs/lab-04/wrap-up.md
+  - "Final project": final-project.md
