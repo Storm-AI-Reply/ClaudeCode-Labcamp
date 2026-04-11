@@ -1,9 +1,13 @@
 # MkDocs Material — navigation-oriented layout for the workshop site.
-# See: https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+# Publishing: https://squidfunk.github.io/mkdocs-material/publishing-your-site/
 
 site_name: Claude Code Labcamp
 site_description: "Hands-on workshop: build a live trivia quiz with Claude Code"
 site_author: Claude Code Labcamp
+# Local: defaults below. CI sets SITE_URL + REPO_URL (see .github/workflows/deploy-docs.yml).
+site_url: !ENV [SITE_URL, 'http://127.0.0.1:8000']
+repo_url: !ENV [REPO_URL, '']
+strict: true
 docs_dir: docs
 
 extra_css:

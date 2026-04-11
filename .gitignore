@@ -1,5 +1,6 @@
 .DS_Store
-# Local Python envs — recreate with pip install -r requirements.txt (etc.)
+# Local Python envs — labs: `requirements.txt` → `.venv/` | docs: `requirements-docs.txt` → `.venv-docs/`
+.venv/
 .venv-docs/
 # MkDocs `mkdocs build` output — generated static site; rebuild from docs/ + mkdocs.yml
 site/
