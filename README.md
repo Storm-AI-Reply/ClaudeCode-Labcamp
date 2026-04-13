@@ -1,44 +1,8 @@
 # Agentic AI Coding with Claude Code
 
-A hands-on workshop where you build a **live trivia quiz app** using Claude Code, then the whole room plays it.
+A hands-on labcamp where you build a **live trivia quiz app** using Claude Code, then the whole room plays it.
 
-> **[Open the workshop site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/)** for the best reading experience, or follow the markdown guides below.
-
----
-
-## Publishing the workshop site (GitHub Pages)
-
-Documentation under `docs/` is built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/). Hosting follows Material’s [publishing guide](https://squidfunk.github.io/mkdocs-material/publishing-your-site/): **GitHub Actions** builds the static site and **GitHub Pages** serves it (no `gh-pages` branch required).
-
-**One-time (on GitHub):** **Settings → Pages → Build and deployment** → set **Source** to **GitHub Actions**.
-
-**Deploy:** push to **`main`** or **`master`**, or run the workflow manually (**Actions → Deploy documentation → Run workflow**). The workflow [`.github/workflows/deploy-docs.yml`](.github/workflows/deploy-docs.yml) installs `requirements-docs.txt`, runs `mkdocs build` with `SITE_URL` / `REPO_URL` set for your repo, and publishes the `site/` output. **Live site:** [storm-ai-reply.github.io/ClaudeCode-Labcamp](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/) (also under **Settings → Pages**).
-
-### Local preview (use `.venv-docs`, not `.venv`)
-
-Keep **lab dependencies** in `.venv` (`requirements.txt`) and **documentation tooling** in a separate **`.venv-docs`** (`requirements-docs.txt` only). Do not install MkDocs into the lab venv.
-
-**macOS / Linux**
-
-```bash
-python3 -m venv .venv-docs
-source .venv-docs/bin/activate
-pip install -r requirements-docs.txt
-mkdocs serve
-```
-
-**Windows (PowerShell)**
-
-```powershell
-py -3 -m venv .venv-docs
-.\.venv-docs\Scripts\Activate.ps1
-pip install -r requirements-docs.txt
-mkdocs serve
-```
-
-Open **http://127.0.0.1:8000**. Optional: `export REPO_URL=https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp` (Unix) or `set REPO_URL=https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp` (Windows) before `mkdocs serve` so the theme can show **view/edit on GitHub** links.
-
-**Optional:** `mkdocs gh-deploy` (pushes to a `gh-pages` branch) if you prefer that over Actions; the workflow above matches current Material recommendations.
+> **[Open the labcamp site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/)** for the best reading experience, or follow the markdown guides below.
 
 ---
 
@@ -52,7 +16,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Full instructions in [SETUP.md](SETUP.md). Prefer the web version: **[setup on the workshop site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/setup/)**.
+Full instructions in [SETUP.md](SETUP.md). Prefer the web version: **[setup on the labcamp site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/setup/)**.
 
 ## Labs
 
@@ -77,7 +41,7 @@ At the end, every group hosts their quiz. The room joins via QR code and plays a
 | Quiz content (creative, entertaining, on-theme) | 25 |
 | Beautiful UI (visual craft, polish, identity) | 25 |
 
-## Workshop format
+## labcamp format
 
 - 60 participants, **12 groups of 5**
 - Each group has **1 laptop + 1 Claude Code account**
@@ -94,7 +58,7 @@ At the end, every group hosts their quiz. The room joins via QR code and plays a
 │   ├── 04-scale-reuse/
 │   └── final-project/
 ├── docs/                   MkDocs source (GitHub Pages); `docs/labs/lab-0N/` = one page per exercise
-├── SETUP.md                Pre-workshop setup instructions
+├── SETUP.md                Pre-labcamp setup instructions
 ├── requirements.txt        Python dependencies for the labs (`.venv`)
 ├── requirements-docs.txt   MkDocs Material only (local: `.venv-docs`; CI installs this on the runner)
 └── mkdocs.yml              Site configuration
