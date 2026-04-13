@@ -12,7 +12,7 @@
 |------|-------------------|
 | Lab 01 | Working quiz API + committed theme |
 | Lab 02 | `CLAUDE.md` with your identity, `/write-questions`, `/restyle` |
-| Lab 03 | Permission hooks, lint hook, Quiz Content MCP |
+| Lab 03 | Permission hooks, lint hook, `trivia-content` + `wiki-images` MCP |
 | Lab 04 | `design-system` skill (auto-loaded), `/polish-page` skill |
 
 ## What's already set up
@@ -54,8 +54,10 @@ Target: **10 questions with images.** Each question can include an optional **`i
 
 === "Using MCP directly"
     ```
-    Use get_trivia to fetch 10 questions about <topic> and insert them into quiz 1.
-    For each question, fetch a matching background image via get_topic_image.
+    Use the `trivia-content` MCP (`get_questions`) to fetch 10 multiple-choice
+    questions about <topic> and insert them into quiz 1.
+    For each question, use the `wiki-images` MCP (`get_topic_image`) to fetch
+    a matching background image and store `image_url` on the question.
     ```
 
 ### 2. Make it yours
@@ -99,7 +101,8 @@ security-audit.md. Do not load file contents into this session.
 /restyle src/templates/play.html
 /polish-page src/templates/play.html
 /write-questions <your topic>
-Use get_trivia to fetch 10 questions about <topic> and insert them into quiz 1.
+Use the `trivia-content` MCP (`get_questions`) to fetch 10 multiple-choice questions about <topic> and insert them into quiz 1.
+For each question, use the `wiki-images` MCP (`get_topic_image`) and store `image_url`.
 Add a results page at /quizzes/{id}/results that shows the final leaderboard.
 Make the play page mobile-friendly with responsive layout.
 ```
