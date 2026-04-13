@@ -1,6 +1,6 @@
 # Workshop labs
 
-Use this page as a **map of the whole workshop**. Each lab has an **Overview** (prerequisites and exercise list), then **Exercise 1** and **Exercise 2**, then **Wrap-up** (verify, stretch goals, recap).
+Use this page as a **map of the whole labcamp**. Each lab has an **Overview** (prerequisites and exercise list), then **Exercise 1** and **Exercise 2**, then **Wrap-up** (verify, stretch goals, recap).
 
 ---
 
@@ -18,7 +18,7 @@ Use this page as a **map of the whole workshop**. Each lab has an **Overview** (
 
 ## Suggested order
 
-1. [Setup](../setup.md) (before the workshop)
+1. [Setup](../setup.md) (before the labcamp)
 2. Lab 01 → Lab 02 → Lab 03 → Lab 04 (in order; each builds on the last)
 3. [Final project](../final-project.md)
 

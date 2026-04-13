@@ -1,6 +1,6 @@
 """Offline fallback for the Quiz Content MCP.
 
-Use this when the workshop venue has no internet. Exposes the same two tool
+Use this when the labcamp venue has no internet. Exposes the same two tool
 names as `server.py` but returns canned data instead of calling external APIs.
 
 Register it in `.claude/settings.json`:

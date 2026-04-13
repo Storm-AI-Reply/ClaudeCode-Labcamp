@@ -1,4 +1,4 @@
-"""In-memory quiz store. Not thread-safe — fine for a workshop app."""
+"""In-memory quiz store. Not thread-safe — fine for a labcamp app."""
 from datetime import datetime, timezone
 
 from src.errors import NotFoundError

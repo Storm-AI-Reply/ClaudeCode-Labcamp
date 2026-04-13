@@ -1,6 +1,6 @@
 # Setup
 
-Complete these steps **before the workshop starts**. For the full formatted guide (tabs for macOS/Linux/Windows), use the **[workshop documentation site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/setup/)** ([repository](https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp)).
+Complete these steps **before the labcamp starts**. For the full formatted guide (tabs for macOS/Linux/Windows), use the **[labcamp documentation site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/setup/)** ([repository](https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp)).
 
 ## 1. Install Python 3.11+
 

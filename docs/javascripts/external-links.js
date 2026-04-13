@@ -1,6 +1,6 @@
 /**
  * Open external links (e.g., Anthropic docs, python.org) in a new tab so the
- * workshop page stays open. Re-runs on Material instant navigation.
+ * labcamp page stays open. Re-runs on Material instant navigation.
  */
 (function () {
   function markExternalLinks() {

@@ -12,8 +12,8 @@ this codebase, it should follow everything below without being reminded.
 - **Run locally:** `uvicorn main:app --reload`
 - **Tests:** `pytest` (run from this starter directory)
 - **Lint:** `ruff check .`
-- **Dependencies:** installed once from `workshop/requirements.txt` into
-  `workshop/.venv`. Do not create a new venv per lab.
+- **Dependencies:** installed once from `labcamp/requirements.txt` into
+  `labcamp/.venv`. Do not create a new venv per lab.
 
 ## Code conventions
 

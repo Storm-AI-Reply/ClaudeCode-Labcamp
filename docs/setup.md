@@ -1,6 +1,6 @@
 # Setup
 
-Complete these steps **before the workshop starts**. If you run into issues, check [Troubleshooting](#troubleshooting).
+Complete these steps **before the labcamp starts**. If you run into issues, check [Troubleshooting](#troubleshooting).
 
 You will use a **terminal** (macOS **Terminal** or **iTerm**, Windows **PowerShell** or **Git Bash**, Linux your distro’s terminal) and a **code editor** is optional for reading files.
 
