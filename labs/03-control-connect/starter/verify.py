@@ -1,7 +1,7 @@
 """Run this after finishing Lab 03 to check your work.
 
-Verifies that tests pass, both hooks are configured, the MCP server
-is registered, and the guard script exists.
+Verifies that tests pass, both hooks are configured, MCP servers
+are registered, and the guard script exists.
 """
 import json
 import subprocess
@@ -57,7 +57,7 @@ def main() -> int:
         for f in failures:
             print(" - " + f)
         return 1
-    print("Lab 03 passed. Your guardrails are active and the MCP server is connected.")
+    print("Lab 03 passed. Your guardrails are active and MCP servers are connected.")
     return 0
 
 

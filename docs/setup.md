@@ -210,4 +210,4 @@ That restores tracked files to the last commit. Requires Git ([section 2](#2-git
     Start the server with `--host 0.0.0.0` and use your laptop’s local IP (not `localhost`). Phones must be on the same Wi‑Fi.
 
 ??? question "MCP server not connecting"
-    Check that `"command"` is `"python"` (not `"python3"`), `"args"` is `["mcp_server/server.py"]`, you restarted Claude after editing settings, and `/mcp` lists the tools.
+    Check that `"command"` is `"python"` (not `"python3"`), the configured `"args"` path matches your MCP server file (for Lab 03: `mcp_server/trivia_content_server.py` and `mcp_server/wiki_images_server.py`), you restarted Claude after editing settings, and `/mcp` lists the tools.

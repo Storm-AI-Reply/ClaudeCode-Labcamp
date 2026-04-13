@@ -6,23 +6,40 @@
 
 ??? info "Theory: Skills (SKILL.md)"
 
-    **What it is.** A directory with a `SKILL.md` file and YAML frontmatter. Skills extend Claude with more control than commands over when and how they load.
+    **What it is.** A skill is a reusable capability stored under `.claude/skills/<skill-name>/SKILL.md`. It combines metadata (YAML frontmatter) + instructions (markdown body) so Claude can apply a focused playbook when relevant.
 
-    **Three patterns:**
+    **How it differs from other tools:**
 
-    | Pattern | Flags | Use when |
-    |---|---|---|
-    | **Both** (default) | none | Auto-load + manual invocation |
-    | **Auto-load only** | `user-invocable: false` | Background knowledge |
-    | **Invoke-only** | `disable-model-invocation: true` | Explicit procedures on demand |
+    - `CLAUDE.md` = broad, always-on project guidance.
+    - **Command** (`.claude/commands/*.md`) = explicit slash command you run.
+    - **Skill** = targeted knowledge/procedure that can auto-load by relevance or be slash-invoked.
 
-    **Gotcha.** Skills take precedence over commands with the same name. Skills load on demand, not at session start.
+    **How loading works (important):**
 
-    Further reading: [Extend Claude with skills](https://docs.anthropic.com/en/docs/claude-code/skills)
+    - Skills are **discovered from the skill directories**, then loaded when needed.
+    - They are not all dumped into context at session start.
+    - If a skill name conflicts with a command name, the skill wins.
+
+    **Minimum anatomy of `SKILL.md`:**
+
+    - Frontmatter: `name`, `description` (plus optional behavior flags).
+    - Body: concrete rules/checklists/examples Claude should follow.
+    - Keep each skill single-purpose and specific; split large topics into multiple skills.
+
+    **Use case example:**
+
+    - You create a `design-system` skill with your colors, spacing, and typography.
+    - Later you ask: "Build a new leaderboard page."
+    - Claude auto-loads that skill and applies your visual rules without you repeating them.
+
+    Further reading: [Extend Claude with skills](https://code.claude.com/docs/en/skills.md) · [Explore the `.claude` directory](https://code.claude.com/docs/en/claude-directory.md) · [Commands reference](https://code.claude.com/docs/en/commands.md)
 
 ---
 
 ### Hands-on
+
+!!! tip "Make the skill yours"
+    Do not keep placeholder values. Replace tokens, typography, spacing, and tone with your team's real creative direction so Claude applies a distinct identity automatically.
 
 #### Part 1: `design-system` Skill (Auto-Load Only)
 

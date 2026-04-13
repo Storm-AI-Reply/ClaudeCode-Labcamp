@@ -5,15 +5,15 @@ Exposes two zero-auth tools:
   - get_topic_image(topic)     — main image URL from the closest Wikipedia article
 
 No API keys required. Needs network access. If your venue has no internet,
-run `python mcp_server/server_offline.py` instead (ships with canned data).
+run `python mcp_server/trivia_content_server_offline.py` instead (ships with canned data).
 
 Register it from your lab in `.claude/settings.json`:
 
   {
     "mcpServers": {
-      "quiz-content": {
+      "trivia-content": {
         "command": "python",
-        "args": ["mcp_server/server.py"]
+        "args": ["mcp_server/trivia_content_server.py"]
       }
     }
   }
@@ -26,7 +26,7 @@ from typing import Any
 import requests
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("quiz-content")
+mcp = FastMCP("trivia-content")
 
 OPENTDB_URL = "https://opentdb.com/api.php"
 WIKI_SUMMARY_URL = "https://en.wikipedia.org/api/rest_v1/page/summary/{title}"

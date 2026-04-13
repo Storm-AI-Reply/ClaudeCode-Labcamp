@@ -40,6 +40,9 @@ uvicorn main:app --reload --host 0.0.0.0
 
 ## Your mission
 
+!!! tip "Do not ship the default vibe"
+    Treat prompts in this page as **starting points**, not scripts to copy blindly. The strongest teams personalize topic, tone, visual identity, mechanics, and pacing so their quiz feels unmistakably theirs.
+
 ### 1. Fill your quiz with content
 
 Target: **10 questions with images.** Each question can include an optional **`image_url`** field on `POST /quizzes/{id}/questions`; the play page uses it as a background when present (see `src/schemas/quiz.py`).
@@ -88,6 +91,9 @@ security-audit.md. Do not load file contents into this session.
 ---
 
 ## Handy prompts
+
+!!! note "Customize before you run"
+    Edit these prompts with your theme, audience, and style constraints. If every team runs the same text, every app converges to the same result.
 
 ```
 /restyle src/templates/play.html

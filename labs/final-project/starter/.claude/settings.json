@@ -27,9 +27,9 @@
     ]
   },
   "mcpServers": {
-    "quiz-content": {
+    "trivia-content": {
       "command": "python",
-      "args": ["mcp_server/server.py"]
+      "args": ["mcp_server/trivia_content_server.py"]
     }
   }
 }

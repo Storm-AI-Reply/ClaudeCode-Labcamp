@@ -3,6 +3,7 @@
 Welcome to Claude Code LabCamp. In this hands-on session, you will learn Claude Code by building a live trivia quiz app together, then testing it with the whole room. Plan for about two hours for the core labs and final project (including setup and breaks).
 
 **Documentation:** [storm-ai-reply.github.io/ClaudeCode-Labcamp](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/)
+
 **Repository:** [github.com/Storm-AI-Reply/ClaudeCode-Labcamp](https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp)
 
 ```bash

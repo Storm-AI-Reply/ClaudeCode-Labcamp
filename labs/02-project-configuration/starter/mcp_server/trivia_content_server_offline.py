@@ -7,9 +7,9 @@ Register it in `.claude/settings.json`:
 
   {
     "mcpServers": {
-      "quiz-content": {
+      "trivia-content": {
         "command": "python",
-        "args": ["mcp_server/server_offline.py"]
+        "args": ["mcp_server/trivia_content_server_offline.py"]
       }
     }
   }
@@ -21,7 +21,7 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("quiz-content-offline")
+mcp = FastMCP("trivia-content-offline")
 
 _CANNED: list[dict[str, Any]] = [
     {
