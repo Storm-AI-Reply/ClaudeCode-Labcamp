@@ -6,42 +6,6 @@ A hands-on labcamp where you build a **live trivia quiz app** using Claude Code,
 
 ---
 
-## Publishing the labcamp site (GitHub Pages)
-
-Documentation under `docs/` is built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/). Hosting follows Material’s [publishing guide](https://squidfunk.github.io/mkdocs-material/publishing-your-site/): **GitHub Actions** builds the static site and **GitHub Pages** serves it (no `gh-pages` branch required).
-
-**One-time (on GitHub):** **Settings → Pages → Build and deployment** → set **Source** to **GitHub Actions**.
-
-**Deploy:** push to **`main`** or **`master`**, or run the workflow manually (**Actions → Deploy documentation → Run workflow**). The workflow [`.github/workflows/deploy-docs.yml`](.github/workflows/deploy-docs.yml) installs `requirements-docs.txt`, runs `mkdocs build` with `SITE_URL` / `REPO_URL` set for your repo, and publishes the `site/` output. **Live site:** [storm-ai-reply.github.io/ClaudeCode-Labcamp](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/) (also under **Settings → Pages**).
-
-### Local preview (use `.venv-docs`, not `.venv`)
-
-Keep **lab dependencies** in `.venv` (`requirements.txt`) and **documentation tooling** in a separate **`.venv-docs`** (`requirements-docs.txt` only). Do not install MkDocs into the lab venv.
-
-**macOS / Linux**
-
-```bash
-python3 -m venv .venv-docs
-source .venv-docs/bin/activate
-pip install -r requirements-docs.txt
-mkdocs serve
-```
-
-**Windows (PowerShell)**
-
-```powershell
-py -3 -m venv .venv-docs
-.\.venv-docs\Scripts\Activate.ps1
-pip install -r requirements-docs.txt
-mkdocs serve
-```
-
-Open **http://127.0.0.1:8000**. Optional: `export REPO_URL=https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp` (Unix) or `set REPO_URL=https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp` (Windows) before `mkdocs serve` so the theme can show **view/edit on GitHub** links.
-
-**Optional:** `mkdocs gh-deploy` (pushes to a `gh-pages` branch) if you prefer that over Actions; the workflow above matches current Material recommendations.
-
----
-
 ## Quick start
 
 ```bash
