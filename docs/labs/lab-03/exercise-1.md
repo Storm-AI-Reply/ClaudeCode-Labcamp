@@ -29,7 +29,7 @@
       "hooks": {
         "PreToolUse": [{
           "matcher": "Write|Edit",
-          "hooks": [{ "type": "command", "command": "python .claude/hooks/guard_live.py" }]
+          "hooks": [{ "type": "command", "command": "uv run python .claude/hooks/guard_live.py" }]
         }]
       }
     }
@@ -104,7 +104,7 @@
         "PreToolUse": [
           {
             "matcher": "Write|Edit",
-            "hooks": [{ "type": "command", "command": "python .claude/hooks/guard_live.py" }]
+            "hooks": [{ "type": "command", "command": "uv run python .claude/hooks/guard_live.py" }]
           }
         ],
         "PostToolUse": []
@@ -119,8 +119,6 @@
     Hand the keyboard to the next person.
 
 #### Part 3: PostToolUse Hook: Auto-Lint
-
-Use a **Python** hook (not bash) so the same script works on macOS, Linux, and Windows.
 
 1. Create `.claude/hooks/lint_python.py`:
     ```python
@@ -160,7 +158,7 @@ Use a **Python** hook (not bash) so the same script works on macOS, Linux, and W
     "PostToolUse": [
       {
         "matcher": "Write|Edit",
-        "hooks": [{ "type": "command", "command": "python .claude/hooks/lint_python.py" }]
+        "hooks": [{ "type": "command", "command": "uv run python .claude/hooks/lint_python.py" }]
       }
     ]
     ```

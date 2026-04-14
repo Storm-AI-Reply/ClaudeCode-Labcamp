@@ -7,8 +7,10 @@
 **Prerequisites**
 
 - Lab 01 complete
-- `cd labs/02-project-configuration/starter`
-- Venv active: `source ../../../.venv/bin/activate`
+
+```bash
+cd labs/02-project-configuration/starter
+```
 
 ---
 

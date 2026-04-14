@@ -7,8 +7,10 @@
 **Prerequisites**
 
 - Lab 02 complete
-- `cd labs/03-control-connect/starter`
-- Venv active: `source ../../../.venv/bin/activate`
+
+```bash
+cd labs/03-control-connect/starter
+```
 
 ---
 

@@ -10,11 +10,10 @@ this codebase, it should follow everything below without being reminded.
 ## Project basics
 
 - **App:** `quiz-night`, a trivia quiz builder and runner (FastAPI + Jinja2).
-- **Run locally:** `uvicorn main:app --reload`
-- **Tests:** `pytest` (run from this starter directory)
-- **Lint:** `ruff check .`
-- **Dependencies:** installed once from `labcamp/requirements.txt` into
-  `labcamp/.venv`. Do not create a new venv per lab.
+- **Run locally:** `uv run uvicorn main:app --reload`
+- **Tests:** `uv run pytest` (run from this starter directory)
+- **Lint:** `uv run ruff check .`
+- **Dependencies:** managed by uv. Run `uv sync` once from the repo root.
 
 ## Code conventions
 

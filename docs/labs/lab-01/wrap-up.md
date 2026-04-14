@@ -22,7 +22,7 @@ Decide together:
 ## Verify
 
 ```bash
-python verify.py
+uv run python verify.py
 ```
 
 ## Stretch goals

@@ -51,7 +51,7 @@
 #### Part 2: Add Your Theme
 
 3. Edit the CLAUDE.md to include:
-    - **Project basics**: what the app does, `uvicorn main:app --reload`, `pytest`, `ruff check .`
+    - **Project basics**: what the app does, `uv run uvicorn main:app --reload`, `uv run pytest`, `uv run ruff check .`
     - **Code conventions**: 4 options per question, `correct_index` 0–3, HTML in `src/templates/`, CSS in `src/static/style.css`
     - **Visual identity**: theme name, 3–5 color hex codes, font pairing, animation style
     - **Voice & tone**: how questions should read

@@ -29,8 +29,7 @@
 
 ```bash
 cd labs/final-project/starter
-source ../../../.venv/bin/activate
-uvicorn main:app --reload --host 0.0.0.0
+uv run uvicorn main:app --reload --host 0.0.0.0
 ```
 
 !!! warning "In-memory storage"
@@ -127,5 +126,5 @@ Make the play page mobile-friendly with responsive layout.
 ## Verify
 
 ```bash
-python verify.py
+uv run python verify.py
 ```

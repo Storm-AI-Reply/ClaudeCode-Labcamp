@@ -1,16 +1,36 @@
 # Setup
 
-Complete these steps **before the labcamp starts**. For the full formatted guide (tabs for macOS/Linux/Windows), use the **[labcamp documentation site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/setup/)** ([repository](https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp)).
+Complete these steps **before the labcamp starts**. For the full formatted guide, use the **[labcamp documentation site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/setup/)** ([repository](https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp)).
 
-## 1. Install Python 3.11+
+## 1. Install uv
+
+**macOS / Linux:**
 
 ```bash
-python3 --version   # must be 3.11 or higher
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-If you need to install it: [python.org/downloads](https://www.python.org/downloads/)
+Restart your terminal, then verify: `uv --version`
 
-## 2. Install Claude Code
+**Windows (PowerShell):**
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Restart your terminal, then verify: `uv --version`
+
+> uv will also install Python 3.11+ automatically when needed — no separate Python install required.
+
+## 2. Install Git
+
+```bash
+git --version
+```
+
+If missing: [git-scm.com/downloads](https://git-scm.com/downloads). On macOS: `xcode-select --install`.
+
+## 3. Install Claude Code
 
 **macOS / Linux:**
 
@@ -26,30 +46,30 @@ claude   # authenticate when prompted, then exit with /exit
 irm https://claude.ai/install.ps1 | iex
 ```
 
-## 3. Clone and set up
+## 4. Clone and set up
 
 ```bash
 git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
 cd ClaudeCode-Labcamp
-python3 -m venv .venv
-source .venv/bin/activate      # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+uv sync
 ```
 
-## 4. Verify the app runs
+`uv sync` creates the virtual environment and installs all dependencies in one step.
+
+## 5. Verify the app runs
 
 ```bash
 cd labs/01-execution-model/starter
-uvicorn main:app --reload
+uv run uvicorn main:app --reload
 ```
 
 Visit [http://localhost:8000/docs](http://localhost:8000/docs), you should see the quiz-night API docs. Press `Ctrl+C` to stop.
 
-> **Do not run `pytest` during setup.** The Lab 01 starter has intentional bugs, fixing them is the exercise.
+> **Do not run `uv run pytest` during setup.** The Lab 01 starter has intentional bugs, fixing them is the exercise.
 
 ## Moving between labs
 
-`cd` into the next lab's starter. The venv stays active:
+`cd` into the next lab's starter. No activation needed — just use `uv run`:
 
 ```bash
 cd ../../../labs/02-project-configuration/starter    # from Lab 01
@@ -70,17 +90,17 @@ Resets all files in the current directory to their original state.
 
 ## Troubleshooting
 
-**`python3: command not found`**
-Install Python 3.11+ from [python.org](https://www.python.org/downloads/). On macOS: `brew install python@3.12`.
+**`uv: command not found`**
+Restart your terminal after installation. If still missing, re-run the installer.
 
-**`pytest` or `uvicorn` not found**
-The venv is not activated. Run `source .venv/bin/activate` from the repo root.
+**`uv run pytest` or `uv run uvicorn` fails with `No such file or directory`**
+Run `uv sync` from the repo root first to install dependencies.
 
 **Port 8000 already in use**
-Use a different port: `uvicorn main:app --reload --port 8001`
+Use a different port: `uv run uvicorn main:app --reload --port 8001`
 
 **`ModuleNotFoundError: No module named 'fastapi'`**
-You are running Python outside the venv. Activate it first.
+Run `uv sync` from the repo root.
 
 **Quiz data disappeared**
 The app uses in-memory storage. Restarting `uvicorn` wipes all data, keep the server running throughout each lab.
@@ -92,4 +112,4 @@ Each group shares one account. Wait 30 seconds and try again. Keep prompts focus
 Start the server with `--host 0.0.0.0` and use your laptop's local IP address (not `localhost`). Phones must be on the same Wi-Fi.
 
 **MCP server not connecting**
-Check that `"command"` is `"python"` (not `"python3"`), `"args"` is `["mcp_server/server.py"]`, you restarted Claude after editing settings, and `/mcp` lists the tools.
+Check that `"command"` is `"uv"` and `"args"` starts with `["run", "python", ...]`, you restarted Claude after editing settings, and `/mcp` lists the tools.

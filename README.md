@@ -11,9 +11,7 @@ A hands-on labcamp where you build a **live trivia quiz app** using Claude Code,
 ```bash
 git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
 cd ClaudeCode-Labcamp
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+uv sync
 ```
 
 Full instructions in [SETUP.md](SETUP.md). Prefer the web version: **[setup on the labcamp site](https://storm-ai-reply.github.io/ClaudeCode-Labcamp/setup/)**.

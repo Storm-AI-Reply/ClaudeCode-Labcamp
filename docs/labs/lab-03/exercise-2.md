@@ -14,12 +14,12 @@
     {
       "mcpServers": {
         "trivia-content": {
-          "command": "python",
-          "args": ["mcp_server/trivia_content_server.py"]
+          "command": "uv",
+          "args": ["run", "python", "mcp_server/trivia_content_server.py"]
         },
         "wiki-images": {
-          "command": "python",
-          "args": ["mcp_server/wiki_images_server.py"]
+          "command": "uv",
+          "args": ["run", "python", "mcp_server/wiki_images_server.py"]
         }
       }
     }
@@ -45,12 +45,12 @@
     {
       "mcpServers": {
         "trivia-content": {
-          "command": "python",
-          "args": ["mcp_server/trivia_content_server.py"]
+          "command": "uv",
+          "args": ["run", "python", "mcp_server/trivia_content_server.py"]
         },
         "wiki-images": {
-          "command": "python",
-          "args": ["mcp_server/wiki_images_server.py"]
+          "command": "uv",
+          "args": ["run", "python", "mcp_server/wiki_images_server.py"]
         }
       }
     }

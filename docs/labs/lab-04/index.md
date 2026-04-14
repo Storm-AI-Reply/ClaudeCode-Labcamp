@@ -7,8 +7,10 @@
 **Prerequisites**
 
 - Lab 03 complete
-- `cd labs/04-scale-reuse/starter`
-- Venv active: `source ../../../.venv/bin/activate`
+
+```bash
+cd labs/04-scale-reuse/starter
+```
 
 ---
 

@@ -2,27 +2,40 @@
 
 Complete these steps **before the labcamp starts**. If you run into issues, check [Troubleshooting](#troubleshooting).
 
-You will use a **terminal** (macOS **Terminal** or **iTerm**, Windows **PowerShell** or **Git Bash**, Linux your distro’s terminal) and a **code editor** is optional for reading files.
+You will use a **terminal** (macOS **Terminal** or **iTerm**, Windows **PowerShell** or **Git Bash**, Linux your distro's terminal) and a **code editor** is optional for reading files.
 
 ---
 
-## 1. Python 3.11+
+## 1. Install uv
+
+[uv](https://docs.astral.sh/uv/) is a fast Python package manager. It also installs Python for you — no separate Python install required.
 
 === "macOS / Linux"
 
     ```bash
-    python3 --version
+    curl -LsSf https://astral.sh/uv/install.sh | sh
     ```
 
-    You need **3.11** or newer. If the command fails or the version is too old, install from [python.org](https://www.python.org/downloads/) or, on macOS with [Homebrew](https://brew.sh/), `brew install python@3.12`.
+    Restart your terminal, then verify:
+
+    ```bash
+    uv --version
+    ```
 
 === "Windows"
 
     ```powershell
-    py -3 --version
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     ```
 
-    You need **3.11** or newer. If `py` is missing, install from [python.org](https://www.python.org/downloads/) and tick **“Add python.exe to PATH”** (or use the **Python Launcher** after install). Some systems only have `python`; if `python --version` shows 3.11+, use that instead of `py`.
+    Restart your terminal, then verify:
+
+    ```powershell
+    uv --version
+    ```
+
+!!! tip "uv handles Python too"
+    `uv sync` will automatically download and use Python 3.11+ if it is not already installed on your system.
 
 ---
 
@@ -48,7 +61,7 @@ If that prints a version, skip to [Claude Code](#3-install-claude-code).
 
 === "Windows"
 
-    Install **[Git for Windows](https://git-scm.com/download/win)**. Use **PowerShell** or **Git Bash** for the shell commands in this guide (`cd`, `git`, `python`).
+    Install **[Git for Windows](https://git-scm.com/download/win)**. Use **PowerShell** or **Git Bash** for the shell commands in this guide.
 
 === "Linux"
 
@@ -87,47 +100,26 @@ If that prints a version, skip to [Claude Code](#3-install-claude-code).
 
 ## 4. Clone and install dependencies
 
-=== "macOS / Linux"
+The commands below are **identical on all operating systems**:
 
-    ```bash
-    git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
-    cd ClaudeCode-Labcamp
-    python3 -m venv .venv
-    source .venv/bin/activate
-    pip install -r requirements.txt
-    ```
+```bash
+git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
+cd ClaudeCode-Labcamp
+uv sync
+```
 
-=== "Windows"
-
-    ```powershell
-    git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
-    cd ClaudeCode-Labcamp
-    py -3 -m venv .venv
-    .venv\Scripts\Activate.ps1
-    pip install -r requirements.txt
-    ```
-
-    If PowerShell blocks activation, run once: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`. In **cmd.exe** use `.venv\Scripts\activate.bat` instead of `Activate.ps1`.
+`uv sync` reads `pyproject.toml`, creates a virtual environment, and installs all dependencies in one step — no manual venv creation or activation needed.
 
 ---
 
 ## 5. Confirm the app runs
 
-From the **repository root**, with the **venv activated**:
+From the **repository root**:
 
-=== "macOS / Linux"
-
-    ```bash
-    cd labs/01-execution-model/starter
-    uvicorn main:app --reload
-    ```
-
-=== "Windows"
-
-    ```powershell
-    cd labs\01-execution-model\starter
-    uvicorn main:app --reload
-    ```
+```bash
+cd labs/01-execution-model/starter
+uv run uvicorn main:app --reload
+```
 
 Visit [http://localhost:8000/docs](http://localhost:8000/docs). You should see the quiz-night API documentation page. Stop the server with **Ctrl+C** (same on all platforms).
 
@@ -138,39 +130,36 @@ Visit [http://localhost:8000/docs](http://localhost:8000/docs). You should see t
 
 ## Hooks and MCP (all operating systems)
 
-Lab hooks and the MCP server in `.claude/settings.json` use the command **`python`**. After you activate the venv, `python` should be the interpreter that has `ruff`, `mcp`, and the rest of `requirements.txt`.
+Lab hooks and MCP servers in `.claude/settings.json` use `uv run python`. Since `uv run` resolves the virtual environment automatically, no manual activation is ever required.
 
-If Claude Code cannot find `python`, set the hook/MCP command to your venv executable explicitly, for example `./.venv/bin/python` (macOS/Linux) or `.venv\Scripts\python.exe` (Windows).
+Example hook command:
+```json
+{ "type": "command", "command": "uv run python .claude/hooks/guard_live.py" }
+```
+
+Example MCP server:
+```json
+{ "command": "uv", "args": ["run", "python", "mcp_server/trivia_content_server.py"] }
+```
 
 ---
 
 ## Moving between labs
 
-`cd` into the next lab’s starter. The venv stays **active** in the same terminal session.
+`cd` into the next lab's starter. No activation needed — `uv run` finds the environment automatically.
 
-=== "macOS / Linux"
-
-    ```bash
-    cd ../../../labs/02-project-configuration/starter    # from Lab 01
-    cd ../../../labs/03-control-connect/starter          # from Lab 02
-    cd ../../../labs/04-scale-reuse/starter              # from Lab 03
-    cd ../../../labs/final-project/starter               # from Lab 04
-    ```
-
-=== "Windows"
-
-    ```powershell
-    cd ..\..\..\labs\02-project-configuration\starter    # from Lab 01
-    cd ..\..\..\labs\03-control-connect\starter          # from Lab 02
-    cd ..\..\..\labs\04-scale-reuse\starter              # from Lab 03
-    cd ..\..\..\labs\final-project\starter               # from Lab 04
-    ```
+```bash
+cd ../../../labs/02-project-configuration/starter    # from Lab 01
+cd ../../../labs/03-control-connect/starter          # from Lab 02
+cd ../../../labs/04-scale-reuse/starter              # from Lab 03
+cd ../../../labs/final-project/starter               # from Lab 04
+```
 
 ---
 
 ## Resetting a lab
 
-From inside a lab’s `starter/` folder:
+From inside a lab's `starter/` folder:
 
 ```bash
 git checkout -- .
@@ -182,23 +171,20 @@ That restores tracked files to the last commit. Requires Git ([section 2](#2-git
 
 ## Troubleshooting
 
-??? question "`python3: command not found` (macOS/Linux)"
-    Install Python 3.11+ from [python.org](https://www.python.org/downloads/). On macOS with Homebrew: `brew install python@3.12`.
+??? question "`uv: command not found`"
+    Restart your terminal after installation. If still missing, re-run the installer from [astral.sh/uv](https://astral.sh/uv).
 
-??? question "`py` is not recognized (Windows)"
-    Reinstall Python from [python.org](https://www.python.org/downloads/) and enable the launcher/PATH options, or use `python` if `python --version` shows 3.11+.
+??? question "`uv run` fails with `No such file or directory`"
+    Run `uv sync` from the repo root first to create the virtual environment and install dependencies.
 
 ??? question "`git: command not found`"
     Install Git ([section 2](#2-git)) and open a **new** terminal window.
 
-??? question "`pytest` or `uvicorn` not found"
-    The venv is not active. From the repo root: `source .venv/bin/activate` (macOS/Linux) or `.venv\Scripts\Activate.ps1` (Windows), then try again.
+??? question "`uv run pytest` or `uv run uvicorn` shows `ModuleNotFoundError`"
+    Run `uv sync` from the repo root. Make sure you are running from within the cloned repo.
 
 ??? question "Port 8000 already in use"
-    Use a different port: `uvicorn main:app --reload --port 8001`
-
-??? question "`ModuleNotFoundError: No module named 'fastapi'`"
-    You are running Python outside the venv. Activate it first, or use `python -m pip install -r requirements.txt` from the repo root with the venv activated.
+    Use a different port: `uv run uvicorn main:app --reload --port 8001`
 
 ??? question "Quiz data disappeared"
     The app uses **in-memory storage**. Restarting `uvicorn` wipes all data; keep the server running throughout each lab.
@@ -207,7 +193,7 @@ That restores tracked files to the last commit. Requires Git ([section 2](#2-git
     Each group shares one account. Wait 30 seconds and try again. Keep prompts focused.
 
 ??? question "Phones cannot connect (Final Project)"
-    Start the server with `--host 0.0.0.0` and use your laptop’s local IP (not `localhost`). Phones must be on the same Wi‑Fi.
+    Start the server with `--host 0.0.0.0` and use your laptop's local IP (not `localhost`). Phones must be on the same Wi‑Fi.
 
 ??? question "MCP server not connecting"
-    Check that `"command"` is `"python"` (not `"python3"`), the configured `"args"` path matches your MCP server file (for Lab 03: `mcp_server/trivia_content_server.py` and `mcp_server/wiki_images_server.py`), you restarted Claude after editing settings, and `/mcp` lists the tools.
+    Check that `"command"` is `"uv"` and `"args"` starts with `["run", "python", ...]`, the configured path matches your MCP server file, you restarted Claude after editing settings, and `/mcp` lists the tools.

@@ -7,8 +7,10 @@
 **Prerequisites**
 
 - [Setup](../../setup.md) complete
-- `cd labs/01-execution-model/starter`
-- Venv active: `source ../../../.venv/bin/activate`
+
+```bash
+cd labs/01-execution-model/starter
+```
 
 ---
 
