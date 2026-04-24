@@ -4,18 +4,18 @@
 
 ---
 
-## Group ritual: Commit to your theme
+## Pick your theme
 
 *5 minutes, end of lab*
 
-Decide together:
+Decide, for yourself:
 
 1. **Topic**, what will your quiz be about? (e.g., "90s video games", "Renaissance art", "obscure flags")
 2. **Visual identity**, Brutalist newspaper · 80s synthwave · Art deco poster · Terminal/hacker · Retro arcade · Swiss minimalist · Maximalist zine · … or invent your own
-3. Write both on a sticky note and put it on the laptop.
+3. Jot both down somewhere you'll keep near your laptop for the rest of the day.
 
 !!! note "Every subsequent lab builds on this choice"
-    Lab 02: teach Claude your identity. Lab 03: pull real content. Lab 04: make Claude write on-brand code by default.
+    Lab 02: teach Claude your identity. Lab 03: pull real content. Lab 04: make Claude write on-brand code by default. For the final project you will regroup in a team of 5 and pick a shared theme; the one you choose now is *yours* for Labs 02-04.
 
 ---
 

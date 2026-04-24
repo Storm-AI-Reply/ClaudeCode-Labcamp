@@ -1,5 +1,5 @@
 ---
-description: Generate 5 quiz questions on a topic, using the group's voice & tone from CLAUDE.md.
+description: Generate 5 quiz questions on a topic, using your team's voice & tone from CLAUDE.md.
 argument-hint: <topic>
 ---
 

@@ -37,9 +37,6 @@
 2. Watch which files Claude reads.
 3. Run `/context` and note the token usage.
 
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
-
 #### Part 2: With `@` References
 
 1. Fresh session (`/clear` or restart).

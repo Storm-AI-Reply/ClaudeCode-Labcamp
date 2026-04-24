@@ -85,7 +85,6 @@ If that prints a version, skip to [Claude Code](#3-install-claude-code).
     ```bash
     curl -fsSL https://claude.ai/install.sh | bash
     claude --version
-    claude   # authenticate when prompted, then exit with /exit
     ```
 
 === "Windows"
@@ -93,8 +92,10 @@ If that prints a version, skip to [Claude Code](#3-install-claude-code).
     ```powershell
     irm https://claude.ai/install.ps1 | iex
     claude --version
-    claude   # authenticate when prompted, then exit with /exit
     ```
+
+!!! warning "Do not run `claude` yet"
+    The labcamp uses **Amazon Bedrock**, not an Anthropic account login. You will configure it in [section 5](#5-configure-claude-code-for-amazon-bedrock).
 
 ---
 
@@ -112,7 +113,44 @@ uv sync
 
 ---
 
-## 5. Confirm the app runs
+## 5. Configure Claude Code for Amazon Bedrock
+
+The organizers will hand you a set of **temporary AWS credentials** for the day (three values plus a region). In the terminal where you will launch `claude`, export them:
+
+=== "macOS / Linux"
+
+    ```bash
+    export CLAUDE_CODE_USE_BEDROCK=1
+    export AWS_REGION=us-east-1
+    export AWS_ACCESS_KEY_ID=...
+    export AWS_SECRET_ACCESS_KEY=...
+    export AWS_SESSION_TOKEN=...
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    $env:CLAUDE_CODE_USE_BEDROCK = "1"
+    $env:AWS_REGION = "us-east-1"
+    $env:AWS_ACCESS_KEY_ID = "..."
+    $env:AWS_SECRET_ACCESS_KEY = "..."
+    $env:AWS_SESSION_TOKEN = "..."
+    ```
+
+Then launch Claude Code:
+
+```bash
+claude
+```
+
+You should land directly at the prompt with no Anthropic login step.
+
+!!! note "Your credentials are temporary and personal"
+    They expire after ~3 hours and are issued just for you. Do not share them. If they stop working, ask an organizer for a fresh set.
+
+---
+
+## 6. Confirm the app runs
 
 From the **repository root**:
 
@@ -189,8 +227,14 @@ That restores tracked files to the last commit. Requires Git ([section 2](#2-git
 ??? question "Quiz data disappeared"
     The app uses **in-memory storage**. Restarting `uvicorn` wipes all data; keep the server running throughout each lab.
 
-??? question "Claude Code rate limited"
-    Each group shares one account. Wait 30 seconds and try again. Keep prompts focused.
+??? question "`claude` starts but asks for an Anthropic login"
+    Your `CLAUDE_CODE_USE_BEDROCK=1` env var is missing in this terminal. Re-export the block from [section 5](#5-configure-claude-code-for-amazon-bedrock) and start `claude` again.
+
+??? question "Bedrock error: `ExpiredTokenException` or `AccessDenied`"
+    Your AWS session expired or was revoked. Ask an organizer for fresh credentials and re-export them.
+
+??? question "Bedrock error: model not available in region"
+    You are using a region that doesn't match the one the organizers assigned. Re-export `AWS_REGION` with the value on your sheet.
 
 ??? question "Phones cannot connect (Final Project)"
     Start the server with `--host 0.0.0.0` and use your laptop's local IP (not `localhost`). Phones must be on the same Wi‑Fi.

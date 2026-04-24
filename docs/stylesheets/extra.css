@@ -339,7 +339,7 @@ html {
   opacity: 0.85;
 }
 
-/* "Tip: Rotate the driver" — make the tip icon area warmer */
+/* Tip admonitions — make the icon area warmer */
 .md-typeset .admonition.tip {
   border-color: var(--md-primary-fg-color);
 }

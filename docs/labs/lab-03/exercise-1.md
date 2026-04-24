@@ -70,9 +70,6 @@
     - `plan`, analyzes but does not edit
 3. Reset to `"default"`.
 
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
-
 #### Part 2: PreToolUse Hook: Guard `live/`
 
 1. Create `.claude/hooks/guard_live.py`:
@@ -114,9 +111,6 @@
 3. Test:
     - *"Edit live/quiz-001.json and add a test question."* → **denied**
     - *"Edit src/routes/quizzes.py and add a comment."* → **allowed**
-
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
 
 #### Part 3: PostToolUse Hook: Auto-Lint
 

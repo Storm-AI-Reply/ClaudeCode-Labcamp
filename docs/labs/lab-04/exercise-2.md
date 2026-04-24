@@ -39,7 +39,7 @@
 ### Hands-on
 
 !!! tip "Make the skill yours"
-    Do not keep placeholder values. Replace tokens, typography, spacing, and tone with your team's real creative direction so Claude applies a distinct identity automatically.
+    Do not keep placeholder values. Replace tokens, typography, spacing, and tone with your real creative direction so Claude applies a distinct identity automatically.
 
 #### Part 1: `design-system` Skill (Auto-Load Only)
 
@@ -76,12 +76,9 @@
     DO: use CSS variables, semantic HTML, visible focus rings
     NEVER: inline styles, animations without reduced-motion fallback
     ```
-2. **Replace** placeholders with your group's real values.
+2. **Replace** placeholders with your own real values.
 3. New session → ask Claude to add a `/quizzes/{id}/winner` page. Don't mention the theme. Verify it auto-applies.
 4. Run `/context` to confirm the skill loaded.
-
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
 
 #### Part 2: `polish-page` Skill (Invoke-Only)
 

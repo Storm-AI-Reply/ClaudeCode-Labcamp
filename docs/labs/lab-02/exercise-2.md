@@ -55,15 +55,12 @@
     ```
 2. Test: make a small edit, then run `/summarize-pr`.
 
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
-
 #### Part 2: `/write-questions` (parameterized)
 
 1. Create `.claude/commands/write-questions.md`:
     ```markdown
     ---
-    description: Generate 5 quiz questions on a topic, using the group's voice & tone.
+    description: Generate 5 quiz questions on a topic, using your voice & tone.
     argument-hint: <topic>
     ---
 

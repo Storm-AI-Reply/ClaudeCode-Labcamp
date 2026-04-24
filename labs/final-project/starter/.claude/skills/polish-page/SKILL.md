@@ -19,6 +19,6 @@ Audit $ARGUMENTS against these rules:
 Output format:
 - Structured list: file:line · severity (critical/high/medium) · one-line finding · one-line fix
 - Auto-fix the safe ones (missing focus rings, reduced-motion wrappers)
-- Report the rest for the group to decide
+- Report the rest for the team to decide
 
 End with a summary: total findings by severity and an overall score (1-10).

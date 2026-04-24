@@ -68,9 +68,6 @@
 3. Watch Claude work. Notice each tool call, it reads files, runs `pytest`, edits code, and re-runs `pytest`.
 4. When pytest passes, note how many tool calls it took.
 
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
-
 #### Part 2: Plan Mode (think before doing)
 
 1. Reset: `git checkout -- .`
@@ -79,12 +76,9 @@
     claude --permission-mode plan
     ```
 3. Same task: `This API has bugs. Fix them so pytest passes.`
-4. Read the plan together.
+4. Read the plan.
 5. Modify it, e.g., *"Start with the route handler bug instead."*
 6. Switch back to default mode (`Shift+Tab`) and tell Claude to execute.
-
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
 
 #### Part 3: Interrupt & Rewind (your safety net)
 

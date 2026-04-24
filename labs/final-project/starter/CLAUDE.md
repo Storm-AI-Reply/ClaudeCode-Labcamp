@@ -1,10 +1,10 @@
 # quiz-night: design contract
 
-This file is the contract between your group and Claude. When Claude edits
+This file is the contract between your team and Claude. When Claude edits
 this codebase, it should follow everything below without being reminded.
 
 > The visual identity below is a placeholder, replace the values with
-> your group's real theme. The `design-system` skill will auto-apply it
+> your team's real theme. The `design-system` skill will auto-apply it
 > to any HTML/CSS work.
 
 ## Project basics
@@ -27,7 +27,7 @@ this codebase, it should follow everything below without being reminded.
   by `register_exception_handlers` in `src/middleware/errors.py`, do not
   return ad-hoc error dicts from route handlers.
 
-## Visual identity (placeholder: replace with your group's sticky)
+## Visual identity (placeholder: replace with your team's theme)
 
 - **Theme name:** Quiz Night, Default
 - **Palette:**

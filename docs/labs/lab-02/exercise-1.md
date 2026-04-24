@@ -1,6 +1,6 @@
 # Exercise 1: CLAUDE.md as a Design Contract
 
-> Your group picked a theme in Lab 01. Now teach Claude about it so every future session is on-brand from the start.
+> You picked a theme in Lab 01. Now teach Claude about it so every future session is on-brand from the start.
 
 **Lab:** [Lab 02 overview](index.md)
 
@@ -43,10 +43,7 @@
     Explore this codebase and draft a CLAUDE.md for it. Include: what the app does,
     how to run it, how to test it, and our code conventions.
     ```
-2. Review together. It will be generic, that is expected.
-
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
+2. Review it. It will be generic, that is expected.
 
 #### Part 2: Add Your Theme
 

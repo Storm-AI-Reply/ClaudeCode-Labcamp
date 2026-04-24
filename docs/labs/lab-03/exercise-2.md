@@ -36,7 +36,7 @@
 ### Hands-on
 
 !!! tip "Template prompts are scaffolding"
-    Use the sample prompts below as a baseline, then adapt topic, constraints, and voice to your group's concept so your quiz content does not look like everyone else's.
+    Use the sample prompts below as a baseline, then adapt topic, constraints, and voice to your own concept so your quiz content does not look like everyone else's.
 
 #### Part 1: Register the MCP Servers
 
@@ -58,15 +58,12 @@
 2. Restart Claude.
 3. Run `/mcp`, you should see trivia tools (`get_trivia`, `get_questions`, `list_categories`) and image tool (`get_topic_image`).
 
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
-
 #### Part 2: Fetch Real Trivia
 
 4. Ask:
     ```
     Use the `trivia-content` MCP (`get_questions`) to fetch 10 multiple-choice
-    questions for our theme and insert them into quiz 1 using the local API.
+    questions for your theme and insert them into quiz 1 using the local API.
     ```
 5. No quiz yet? First: `Create a quiz called "<theme>" with topic "<topic>" using POST /quizzes`.
 

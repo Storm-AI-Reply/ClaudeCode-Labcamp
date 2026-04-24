@@ -1,6 +1,6 @@
 # Lab 01: The Execution Model
 
-> Before you configure Claude Code, you need to understand how it thinks. By the end of this lab, your group owns a working quiz API and has committed to the theme you'll compete with.
+> Before you configure Claude Code, you need to understand how it thinks. By the end of this lab, you own a working quiz API and have picked the theme you will build on.
 
 **Time:** ~30 min
 

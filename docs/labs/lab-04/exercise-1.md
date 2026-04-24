@@ -42,9 +42,6 @@
     ```
 3. Run `/context`, template contents should not have accumulated.
 
-!!! tip "Rotate the driver"
-    Hand the keyboard to the next person.
-
 #### Part 3: Parallel Subagents
 
 4. Spawn two at once:

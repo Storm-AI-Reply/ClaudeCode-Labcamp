@@ -6,7 +6,7 @@ user-invocable: false
 
 # Design System: Quiz Night Default
 
-> Replace this with your group's theme from the Lab 01 sticky note.
+> Replace this with your team's chosen theme.
 
 ## Color tokens
 

@@ -37,14 +37,16 @@ If missing: [git-scm.com/downloads](https://git-scm.com/downloads). On macOS: `x
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
 claude --version
-claude   # authenticate when prompted, then exit with /exit
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
 irm https://claude.ai/install.ps1 | iex
+claude --version
 ```
+
+> Do **not** run `claude` yet. The labcamp uses Amazon Bedrock, not an Anthropic login. You'll configure it in step 5.
 
 ## 4. Clone and set up
 
@@ -56,7 +58,29 @@ uv sync
 
 `uv sync` creates the virtual environment and installs all dependencies in one step.
 
-## 5. Verify the app runs
+## 5. Configure Claude Code for Amazon Bedrock
+
+The organizers will hand you a small set of AWS values (your personal credentials for the day). Export them in the terminal where you will launch `claude`:
+
+```bash
+export CLAUDE_CODE_USE_BEDROCK=1
+export AWS_REGION=us-east-1
+export AWS_ACCESS_KEY_ID=...
+export AWS_SECRET_ACCESS_KEY=...
+export AWS_SESSION_TOKEN=...
+```
+
+Then start Claude Code:
+
+```bash
+claude
+```
+
+You should land directly at the prompt with no Anthropic login step.
+
+> **Your credentials are temporary** (they expire after ~3 hours) and **personal**. Do not share them. If they stop working, ask an organizer for a fresh set.
+
+## 6. Verify the app runs
 
 ```bash
 cd labs/01-execution-model/starter
@@ -105,8 +129,14 @@ Run `uv sync` from the repo root.
 **Quiz data disappeared**
 The app uses in-memory storage. Restarting `uvicorn` wipes all data, keep the server running throughout each lab.
 
-**Claude Code rate limited**
-Each group shares one account. Wait 30 seconds and try again. Keep prompts focused.
+**`claude` starts but asks for an Anthropic login**
+Your `CLAUDE_CODE_USE_BEDROCK=1` env var is missing in this terminal. Re-export the block from step 5 and start `claude` again.
+
+**Bedrock error: `ExpiredTokenException` or `AccessDenied`**
+Your AWS session expired or was revoked. Ask an organizer for fresh credentials and re-export them.
+
+**Bedrock error: model not available in region**
+You are using a region that doesn't match the one the organizers assigned. Re-export `AWS_REGION` with the value on your sheet.
 
 **Phones cannot connect (Final Project)**
 Start the server with `--host 0.0.0.0` and use your laptop's local IP address (not `localhost`). Phones must be on the same Wi-Fi.

@@ -15,7 +15,7 @@ git clone https://github.com/Storm-AI-Reply/ClaudeCode-Labcamp.git
 
 ## How it works
 
-Your group of 5 shares one laptop and one Claude Code account. You will mob-code through four labs, each teaching a Claude Code feature and producing a piece of your final quiz app. At the end, every group hosts their quiz and the room votes on the best one.
+Each participant works on their own laptop with personal, temporary AWS Bedrock credentials (provided by the organizers). You will go through four short labs **individually**, each teaching a Claude Code feature. Then you form **teams of 5** for the final project: collaborate, split the work, and ship the most beautiful quiz in the room.
 
 ## Getting started
 
@@ -47,7 +47,7 @@ Work through them in order. Each lab has its own starter code. If you break some
 
 ## The competition
 
-At the end, every group hosts their quiz. The room joins via QR code and plays a round. Best quiz wins.
+At the end, **teams of 5** host their quiz. The room joins via QR code and plays a round. Best quiz wins.
 
 | Criterion | Points |
 |-----------|--------|

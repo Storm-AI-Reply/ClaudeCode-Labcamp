@@ -30,7 +30,7 @@ Work through them in order. Each lab builds on the previous one.
 
 ## The competition
 
-At the end, every group hosts their quiz. The room joins via QR code and plays a round.
+At the end, **teams of 5** host their quiz. The room joins via QR code and plays a round. Team score, winner takes bragging rights.
 
 | Criterion | Points |
 |-----------|--------|
@@ -41,10 +41,10 @@ At the end, every group hosts their quiz. The room joins via QR code and plays a
 
 ## labcamp format
 
-- 60 participants, **12 groups of 5**
-- Each group has **1 laptop + 1 Claude Code account**
-- Mob coding: rotate the driver every exercise
-- 2 hours of hands-on labs + final showdown
+- 60 participants, **1 laptop per person**
+- Each participant gets **temporary AWS Bedrock credentials** from the organizers (see [SETUP.md](SETUP.md))
+- Labs 01-04 are **individual**: everyone works at their own pace
+- Final project is a **team of 5**: split work, combine ideas, ship the most beautiful and original quiz
 
 ## Repository structure
 
