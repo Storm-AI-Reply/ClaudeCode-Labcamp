@@ -115,27 +115,42 @@ uv sync
 
 ## 5. Configure Claude Code for Amazon Bedrock
 
-The organizers will hand you a set of **temporary AWS credentials** for the day (three values plus a region). In the terminal where you will launch `claude`, export them:
+Reference: [Claude Code on Amazon Bedrock](https://code.claude.com/docs/en/amazon-bedrock).
+
+The organizers will hand you:
+
+- `AWS_BEARER_TOKEN_BEDROCK`
+- `AWS_REGION`
+
+In the terminal where you will launch `claude`, use the same simple Bedrock API key flow described in the official docs: export the bearer token and start Claude Code.
+
+### Bedrock API key (bearer token)
+
+Official reference (Option E): [Claude Code on Amazon Bedrock](https://code.claude.com/docs/en/amazon-bedrock#2-configure-aws-credentials).
 
 === "macOS / Linux"
 
     ```bash
+    # Required for Claude Code + Bedrock
     export CLAUDE_CODE_USE_BEDROCK=1
-    export AWS_REGION=us-east-1
-    export AWS_ACCESS_KEY_ID=...
-    export AWS_SECRET_ACCESS_KEY=...
-    export AWS_SESSION_TOKEN=...
+    export AWS_REGION=eu-west-1
+    export AWS_BEARER_TOKEN_BEDROCK=your-bedrock-api-key
     ```
 
 === "Windows (PowerShell)"
 
     ```powershell
+    # Required for Claude Code + Bedrock
     $env:CLAUDE_CODE_USE_BEDROCK = "1"
-    $env:AWS_REGION = "us-east-1"
-    $env:AWS_ACCESS_KEY_ID = "..."
-    $env:AWS_SECRET_ACCESS_KEY = "..."
-    $env:AWS_SESSION_TOKEN = "..."
+    $env:AWS_REGION = "eu-west-1"
+    $env:AWS_BEARER_TOKEN_BEDROCK = "your-bedrock-api-key"
     ```
+
+If your shell is already configured for Bedrock and region, the essential key step is:
+
+```bash
+export AWS_BEARER_TOKEN_BEDROCK=your-bedrock-api-key
+```
 
 Then launch Claude Code:
 
@@ -146,7 +161,7 @@ claude
 You should land directly at the prompt with no Anthropic login step.
 
 !!! note "Your credentials are temporary and personal"
-    They expire after ~3 hours and are issued just for you. Do not share them. If they stop working, ask an organizer for a fresh set.
+    They are issued just for you. Do not share them. If they stop working (expired or revoked), ask an organizer for a fresh set.
 
 ---
 
@@ -231,7 +246,10 @@ That restores tracked files to the last commit. Requires Git ([section 2](#2-git
     Your `CLAUDE_CODE_USE_BEDROCK=1` env var is missing in this terminal. Re-export the block from [section 5](#5-configure-claude-code-for-amazon-bedrock) and start `claude` again.
 
 ??? question "Bedrock error: `ExpiredTokenException` or `AccessDenied`"
-    Your AWS session expired or was revoked. Ask an organizer for fresh credentials and re-export them.
+    Your Bedrock API key expired or was revoked. Ask an organizer for a fresh key and re-export it.
+
+??? question "Bedrock error mentions bearer token / `CallWithBearerToken` denied"
+    Your Bedrock API key path was blocked by an organizer kill switch. Ask for a new token or for the group revoke policy to be disabled.
 
 ??? question "Bedrock error: model not available in region"
     You are using a region that doesn't match the one the organizers assigned. Re-export `AWS_REGION` with the value on your sheet.

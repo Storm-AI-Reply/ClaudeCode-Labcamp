@@ -10,7 +10,8 @@
 
 - **Team size:** 5 people.
 - **Starting point:** everyone on the team clones / moves to `labs/final-project/starter`. It is a clean baseline with all the Claude Code features from the previous labs already wired up (CLAUDE.md, slash commands, hooks, MCP servers, skills).
-- **What you did in Labs 01-04 stays personal** (different themes, different styles). The team starts fresh from this shared starter, so everyone is on the same page.
+- **Bring your best pieces from Labs 01-04.** Your individual work is reusable: if you built a better skill, command, hook, prompt, UI pattern, or feature, integrate it into the team project.
+- **Why the shared starter exists:** to align the team quickly on one codebase, not to throw away personal work. Start from a common base, then import and merge what already worked well in your individual labs.
 - **The starter is a baseline, not the destination.** Do not ship what the starter gives you. Pick a shared theme, rethink the visual identity, add your own mechanics, sounds, animations, copy, pacing. Just keep the API contract stable so phones can still join and answer.
 
 !!! tip "Aim for original, not complete"
@@ -33,6 +34,9 @@ The team never has to rebuild the plumbing. The starter already contains:
 
 !!! note "Every team is playable from minute one"
     The competition is about making it **beautiful, on-theme, and memorable**, not about fixing the plumbing.
+
+!!! tip "Reuse is encouraged"
+    Treat your individual labs as a library of ideas and assets. Copy what is useful, adapt it to the shared team theme, and build from there.
 
 ---
 

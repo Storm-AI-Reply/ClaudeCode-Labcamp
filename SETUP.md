@@ -60,14 +60,19 @@ uv sync
 
 ## 5. Configure Claude Code for Amazon Bedrock
 
-The organizers will hand you a small set of AWS values (your personal credentials for the day). Export them in the terminal where you will launch `claude`:
+Reference: [Claude Code on Amazon Bedrock](https://code.claude.com/docs/en/amazon-bedrock.md).
+
+The organizers will hand you:
+
+- `AWS_BEARER_TOKEN_BEDROCK`
+- `AWS_REGION`
+
+Export them in the terminal where you will launch `claude`:
 
 ```bash
 export CLAUDE_CODE_USE_BEDROCK=1
 export AWS_REGION=us-east-1
-export AWS_ACCESS_KEY_ID=...
-export AWS_SECRET_ACCESS_KEY=...
-export AWS_SESSION_TOKEN=...
+export AWS_BEARER_TOKEN_BEDROCK=...
 ```
 
 Then start Claude Code:
@@ -78,7 +83,7 @@ claude
 
 You should land directly at the prompt with no Anthropic login step.
 
-> **Your credentials are temporary** (they expire after ~3 hours) and **personal**. Do not share them. If they stop working, ask an organizer for a fresh set.
+> **Your API key is personal**. Do not share it. If it expires or is revoked, ask an organizer for a fresh key.
 
 ## 6. Verify the app runs
 
@@ -133,7 +138,10 @@ The app uses in-memory storage. Restarting `uvicorn` wipes all data, keep the se
 Your `CLAUDE_CODE_USE_BEDROCK=1` env var is missing in this terminal. Re-export the block from step 5 and start `claude` again.
 
 **Bedrock error: `ExpiredTokenException` or `AccessDenied`**
-Your AWS session expired or was revoked. Ask an organizer for fresh credentials and re-export them.
+Your Bedrock API key expired or was revoked. Ask an organizer for a fresh key and re-export it.
+
+**Bedrock error mentions `CallWithBearerToken` denied**
+The organizer emergency revoke is active. Ask for a new key or for the revoke policy to be disabled.
 
 **Bedrock error: model not available in region**
 You are using a region that doesn't match the one the organizers assigned. Re-export `AWS_REGION` with the value on your sheet.

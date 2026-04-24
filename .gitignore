@@ -10,3 +10,7 @@ _maintainer/
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Generated Bedrock bearer tokens (sensitive)
+aws/keys/
+aws/.env
