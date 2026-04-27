@@ -9,7 +9,7 @@ from src.middleware.errors import register_exception_handlers
 from src.routes import leaderboard, play, quizzes
 
 # BUG 1: missing parentheses — FastAPI is the class, not an instance
-app = FastAPI
+app = FastAPI()
 
 app.include_router(quizzes.router)
 app.include_router(leaderboard.router)
