@@ -29,7 +29,7 @@
 
 #### Part 1: Without `@` References
 
-1. Fresh session. Ask:
+1. Fresh session — run `/clear` now to start clean. Ask:
     ```
     Add input validation to POST /quizzes, the title must be at least 3 characters
     and the topic must be non-empty.
@@ -56,7 +56,7 @@
     Also write tests for the new validation and update docs/api.md with the
     validation rules.
     ```
-2. Midway through, run `/compact`.
+2. Wait for Claude to finish, then run `/compact`. Run `/context` and verify the history is compressed before telling Claude to continue.
 3. Tell Claude to continue. Verify it picks up where it left off.
 
 !!! success "Checkpoint"

@@ -78,7 +78,11 @@
     ```
 2. **Replace** placeholders with your own real values.
 3. New session → ask Claude to add a `/quizzes/{id}/winner` page. Don't mention the theme. Verify it auto-applies.
-4. Run `/context` to confirm the skill loaded.
+4. See the result in the browser:
+    - Make sure the dev server is running (`uv run uvicorn main:app --reload`).
+    - If no quiz or players exist yet, ask Claude to seed test data.
+    - Visit `http://127.0.0.1:8000/quizzes/1/winner` and confirm the `design-system` skill was applied automatically — correct fonts, colors, and spacing without you mentioning the theme.
+5. Run `/context` to confirm the skill loaded.
 
 #### Part 2: `polish-page` Skill (Invoke-Only)
 
@@ -106,6 +110,7 @@
     Auto-fix the safe ones. Report the rest. End with summary and score (1-10).
     ```
 2. Test: `/polish-page src/templates/play.html`.
+3. Verify the changes at `http://127.0.0.1:8000/quizzes/1/play`.
 
 #### Part 3: Reflect: Command vs Skill
 

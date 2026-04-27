@@ -70,7 +70,11 @@
 
 #### Part 2: Plan Mode (think before doing)
 
-1. Reset: `git checkout -- .`
+1. Reset files and clear context:
+    ```bash
+    git checkout -- .
+    ```
+    Then run `/clear` inside Claude (or `/exit` and relaunch) to start with a clean session.
 2. Enter Plan Mode via `Shift+Tab` or:
     ```bash
     claude --permission-mode plan
@@ -82,10 +86,14 @@
 
 #### Part 3: Interrupt & Rewind (your safety net)
 
-1. Reset: `git checkout -- .`
+1. Reset files and clear context:
+    ```bash
+    git checkout -- .
+    ```
+    Then `/clear` (or `/exit` and relaunch).
 2. Default mode, same task.
 3. After 1–2 tool calls, press `Esc` to interrupt.
-4. Add: *"Also add a docstring to every function you touch."*
+4. Add: *"Also add a comment explaining the purpose of every function you touch."*
 5. Let Claude continue. Try `/rewind` to undo the last step.
 6. Let Claude finish.
 

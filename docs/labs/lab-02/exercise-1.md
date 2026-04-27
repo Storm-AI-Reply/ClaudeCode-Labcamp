@@ -45,6 +45,9 @@
     ```
 2. Review it. It will be generic, that is expected.
 
+!!! note "Claude may read outside `starter/`"
+    When exploring, Claude walks up the directory tree looking for existing `CLAUDE.md` files and project context — it may read files outside `starter/`. This is expected. The generated `CLAUDE.md` will be scoped to your project once you review and save it.
+
 #### Part 2: Add Your Theme
 
 3. Edit the CLAUDE.md to include:
@@ -57,13 +60,21 @@
 #### Part 3: Verify It Works
 
 4. Start a **new session** (exit and run `claude` again).
-5. Test three things:
+5. Make sure the dev server is running in a separate terminal:
+    ```bash
+    uv run uvicorn main:app --reload
+    ```
+    No quiz yet? Ask Claude to create one: *"Create a quiz called '&lt;your theme&gt;' with topic '&lt;topic&gt;' using POST /quizzes."*
+6. Test three things:
 
     | Test | Expected |
     |------|----------|
     | *"What colors should I use for a button?"* | Answers from your palette |
     | *"Edit live/quiz-001.json and add a question."* | Refuses |
-    | *"Make src/templates/play.html match our visual identity."* | Applies your theme |
+    | *"Make @src/templates/play.html match our visual identity."* | Applies your theme — visit `http://127.0.0.1:8000/quizzes/1/play` to verify |
+
+!!! tip "Let it unfold naturally"
+    The third test often leads to a short debugging sequence: ask how to launch the app, get the URL, discover there are no quizzes and ask Claude to create one, then notice styling issues and ask Claude to fix them. Let it happen — that step-by-step flow is exactly what you will use in the final project.
 
 !!! success "Checkpoint"
     - [x] `CLAUDE.md` exists with all five sections

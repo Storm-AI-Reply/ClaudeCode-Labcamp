@@ -11,7 +11,15 @@
 Decide, for yourself:
 
 1. **Topic**, what will your quiz be about? (e.g., "90s video games", "Renaissance art", "obscure flags")
-2. **Visual identity**, Brutalist newspaper · 80s synthwave · Art deco poster · Terminal/hacker · Retro arcade · Swiss minimalist · Maximalist zine · … or invent your own
+2. **Visual identity**:
+    - Brutalist newspaper
+    - 80s synthwave
+    - Art deco poster
+    - Terminal/hacker
+    - Retro arcade
+    - Swiss minimalist
+    - Maximalist zine
+    - … or invent your own
 3. Jot both down somewhere you'll keep near your laptop for the rest of the day.
 
 !!! note "Every subsequent lab builds on this choice"

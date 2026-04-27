@@ -64,11 +64,14 @@
 #### Part 1: Try Permission Modes
 
 1. Open `.claude/settings.json`. Note `defaultMode` is `"default"`.
-2. Try three rounds of *"Add a comment to main.py"*:
+2. Try three rounds of *"Add a comment to @src/routes/quizzes.py explaining that `GET /quizzes` returns an empty list when no quizzes exist."*:
     - `default`, asks before writing
     - `acceptEdits`, writes without asking
     - `plan`, analyzes but does not edit
-3. Reset to `"default"`.
+
+    The current permission mode is shown in the **status bar** at the bottom of the Claude Code interface (e.g. `accept edits on`, `plan mode on`). Watch it change as you cycle with `Shift+Tab`.
+    
+3. Reset to `"default"`. After any direct edit to `settings.json`, run `/exit` and relaunch `claude` — settings are not hot-reloaded.
 
 #### Part 2: PreToolUse Hook: Guard `live/`
 
@@ -94,9 +97,10 @@
     if __name__ == "__main__":
         main()
     ```
-2. Wire it into `.claude/settings.json`:
+2. Wire it into `.claude/settings.json` (replace the entire file):
     ```json
     {
+      "permissions": { "defaultMode": "default" },
       "hooks": {
         "PreToolUse": [
           {
@@ -108,9 +112,10 @@
       }
     }
     ```
+    Run `/exit` and relaunch `claude`.
 3. Test:
     - *"Edit live/quiz-001.json and add a test question."* → **denied**
-    - *"Edit src/routes/quizzes.py and add a comment."* → **allowed**
+    - *"Add a comment to @src/routes/quizzes.py explaining that `GET /quizzes` returns an empty list when no quizzes exist."* → **allowed**
 
 #### Part 3: PostToolUse Hook: Auto-Lint
 
@@ -147,16 +152,28 @@
     if __name__ == "__main__":
         main()
     ```
-2. Add to `.claude/settings.json`:
+2. Update `.claude/settings.json` (replace the entire file):
     ```json
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [{ "type": "command", "command": "uv run python .claude/hooks/lint_python.py" }]
+    {
+      "permissions": { "defaultMode": "default" },
+      "hooks": {
+        "PreToolUse": [
+          {
+            "matcher": "Write|Edit",
+            "hooks": [{ "type": "command", "command": "uv run python .claude/hooks/guard_live.py" }]
+          }
+        ],
+        "PostToolUse": [
+          {
+            "matcher": "Write|Edit",
+            "hooks": [{ "type": "command", "command": "uv run python .claude/hooks/lint_python.py" }]
+          }
+        ]
       }
-    ]
+    }
     ```
-3. Test: *"Add a function to src/utils.py that uses a bare except clause."*
+    Run `/exit` and relaunch `claude`.
+3. Test: *"Add a function to @src/utils.py that uses a bare except clause."*
     Watch: Claude writes it → ruff catches it → Claude fixes it automatically.
 
 !!! success "Checkpoint"

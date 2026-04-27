@@ -146,6 +146,12 @@ Official reference (Option E): [Claude Code on Amazon Bedrock](https://code.clau
     $env:AWS_BEARER_TOKEN_BEDROCK = "your-bedrock-api-key"
     ```
 
+!!! warning "No spaces around `=`"
+    Use `export FOO=bar`, not `export FOO = bar`. On PowerShell the syntax differs (`$env:VAR = "value"`) but the same rule applies: no extra spaces inside the assignment.
+
+!!! note "New terminal tab or window?"
+    Environment variables do not persist across sessions. If you open a new terminal, re-export the entire block above and relaunch `claude` before continuing.
+
 If your shell is already configured for Bedrock and region, the essential key step is:
 
 ```bash
@@ -162,6 +168,9 @@ You should land directly at the prompt with no Anthropic login step.
 
 !!! note "Your credentials are temporary and personal"
     They are issued just for you. Do not share them. If they stop working (expired or revoked), ask an organizer for a fresh set.
+
+!!! tip "Split terminal"
+    Keep two panes open side by side: one for Claude Code, one for shell work (starting the server, running `curl`, checking logs). This avoids spending tokens asking Claude to run commands you can run directly. In VS Code or any IDE, right-click the terminal tab → **Split Terminal**.
 
 ---
 
@@ -199,13 +208,15 @@ Example MCP server:
 
 ## Moving between labs
 
-`cd` into the next lab's starter. No activation needed — `uv run` finds the environment automatically.
+Before switching labs: run `/exit` inside Claude Code, then run the `cd` command in your shell, and relaunch `claude` in the new directory.
+
+These paths assume you are at the `starter/` root. If you are deeper in the directory tree, navigate back to `starter/` first.
 
 ```bash
-cd ../../../labs/02-project-configuration/starter    # from Lab 01
-cd ../../../labs/03-control-connect/starter          # from Lab 02
-cd ../../../labs/04-scale-reuse/starter              # from Lab 03
-cd ../../../labs/final-project/starter               # from Lab 04
+cd ../../../labs/02-project-configuration/starter    # from Lab 01 starter
+cd ../../../labs/03-control-connect/starter          # from Lab 02 starter
+cd ../../../labs/04-scale-reuse/starter              # from Lab 03 starter
+cd ../../../labs/final-project/starter               # from Lab 04 starter
 ```
 
 ---

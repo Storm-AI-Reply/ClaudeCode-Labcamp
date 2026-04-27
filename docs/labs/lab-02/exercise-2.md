@@ -55,7 +55,12 @@
     ```
 2. Test: make a small edit, then run `/summarize-pr`.
 
+!!! note
+    `/summarize-pr` summarises the full `git diff`. If you haven't committed between labs, the output will include changes from Lab 01. This is expected.
+
 #### Part 2: `/write-questions` (parameterized)
+
+You already asked Claude to generate questions manually in Exercise 1. This command formalises that one-off request — write the prompt once, run it any time without repeating yourself.
 
 1. Create `.claude/commands/write-questions.md`:
     ```markdown
@@ -76,6 +81,8 @@
 
 #### Part 3: `/restyle` (domain-specific)
 
+`/restyle` is the reusable version of the manual theming you did in Exercise 1. Instead of a one-off request, you are codifying the action into a command any team member can invoke consistently.
+
 1. Create `.claude/commands/restyle.md`:
     ```markdown
     ---
@@ -93,6 +100,7 @@
     5. Summarize what you changed in 2–3 bullets.
     ```
 2. Test: `/restyle src/templates/play.html`.
+3. Verify the result at `http://127.0.0.1:8000/quizzes/1/play` (make sure the dev server is running: `uv run uvicorn main:app --reload`). No quiz yet? Ask Claude to create one first.
 
 !!! success "Checkpoint"
     - [x] All three commands appear in the `/` menu

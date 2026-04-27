@@ -28,7 +28,7 @@ The team never has to rebuild the plumbing. The starter already contains:
 | `CLAUDE.md` design contract | `./CLAUDE.md` | App description, code conventions, placeholder visual identity, hard constraints. **Replace the identity section with your team's theme.** |
 | Slash commands | `.claude/commands/` | `/summarize-pr`, `/write-questions`, `/restyle` |
 | Hooks | `.claude/hooks/` + `settings.json` | `guard_live.py` (protects `live/`), `lint_python.py` (runs ruff after edits) |
-| MCP servers | `mcp_server/` + `settings.json` | `trivia-content` (real trivia questions), `wiki-images` (Wikipedia images) |
+| MCP servers | `mcp_server/` + `.mcp.json` | `trivia-content` (real trivia questions), `wiki-images` (Wikipedia images) |
 | Skills | `.claude/skills/` | `design-system` (auto-loads on HTML/CSS), `polish-page` (invoke-only audit) |
 | Playable app | `src/` | `GET /join` (QR code) · `GET /play` (question + leaderboard) · `POST /answer` already wired |
 

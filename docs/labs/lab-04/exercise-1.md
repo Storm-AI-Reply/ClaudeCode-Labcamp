@@ -4,6 +4,9 @@
 
 **Lab:** [Lab 04 overview](index.md)
 
+!!! note "Visual identity"
+    The Lab 04 starter is a fresh codebase. Before the exercises below, ask Claude to re-apply your visual identity: *"Apply our visual identity from CLAUDE.md to @src/templates/play.html and @src/static/style.css."*
+
 ??? info "Theory: Subagents"
 
     **What it is.** Specialized AI assistants in their own context window. Claude delegates matching tasks to them.
@@ -40,7 +43,7 @@
     identity in CLAUDE.md. For each file, report: file name, severity
     (high/medium/low), and specific issues. Save the report as ui-audit.md.
     ```
-3. Run `/context`, template contents should not have accumulated.
+3. Run `/context`. The **Messages** line will be higher than your Part 1 baseline — the subagent's summary was added to the conversation — but far smaller than if you had read every template file inline. As a rough guide, a subagent audit of a handful of templates might move context from ~8% to ~13%, versus a much larger jump when reading the files directly. The saving: you pay for the summary, not the source.
 
 #### Part 3: Parallel Subagents
 
@@ -54,9 +57,10 @@
 
 #### Part 4: Inline Comparison
 
-5. Fresh session, same audit inline (no subagent).
-6. Run `/context`. Compare.
-7. Discuss: when would you use subagents vs. inline?
+5. Run `/compact` and note the context count before clearing.
+6. Fresh session (`/exit` and relaunch), same audit inline (no subagent).
+7. Run `/context`. Compare.
+8. Discuss: when would you use subagents vs. inline?
 
 !!! success "Checkpoint"
     - [x] `ui-audit.md` exists with theme-specific findings
