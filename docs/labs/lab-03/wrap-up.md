@@ -12,7 +12,7 @@ uv run python verify.py
 
 ## Stretch goals
 
-- Write a third MCP tool in `server.py`
+- Write a third MCP tool in `mcp_server/trivia_content_server.py`
 - Try the offline fallback
 - What would a `SessionStart` hook be useful for?
 

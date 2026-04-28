@@ -140,7 +140,7 @@
         if not path.is_file():
             return
         result = subprocess.run(
-            ["ruff", "check", str(path)],
+            ["uv", "run", "ruff", "check", str(path)],
             capture_output=True,
             text=True,
         )

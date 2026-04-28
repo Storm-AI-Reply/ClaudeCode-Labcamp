@@ -52,8 +52,8 @@ theme:
     - content.tabs.link
     - toc.follow              # Sidebar TOC highlights the current section
     - toc.integrate           # Page TOC merged into the left sidebar (single scroll context)
-  icon:
-    logo: material/school-outline
+  logo: img/claudecode-color.png
+  favicon: img/claudecode-color.png
 
 markdown_extensions:
   - admonition

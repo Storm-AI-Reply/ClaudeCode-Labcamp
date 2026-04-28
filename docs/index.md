@@ -52,6 +52,6 @@ At the end, **teams of 5** host their quiz. The room joins via QR code and plays
 | Criterion | Points |
 |-----------|--------|
 | Works end-to-end (join, answer, leaderboard) | 25 |
-| Claude Code setup (CLAUDE.md, commands, hooks, skills, MCP) | 25 |
+| Claude Code setup (CLAUDE.md, commands, hooks, skills, MCP, subagents) | 25 |
 | Quiz content (creative, entertaining, on-theme) | 25 |
 | Beautiful UI (visual craft, polish, identity) | 25 |

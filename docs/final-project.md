@@ -52,6 +52,9 @@ Keep this terminal running. Phones join via `http://<your-laptop-ip>:8000/quizze
 !!! warning "In-memory storage"
     Restarting `uvicorn` wipes all data. Keep the server running throughout the demo.
 
+!!! tip "Stuck? Ask Claude first"
+    The guide is intentionally terse. If a command fails, a feature behaves unexpectedly, or an error message makes no sense — paste it into Claude Code and describe what you were trying to do. Unblocking yourself with Claude is part of the exercise, and faster than waiting for a facilitator.
+
 ---
 
 ## Your Claude Code toolbox
